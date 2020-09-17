@@ -34,3 +34,27 @@ const checkPalindrome = (str) => {
   return true;
 };
 console.log(checkPalindrome(wordToCheck));
+
+// ## 3. Digit Sum
+// Write a function `sumDigits` that accepts a number and returns the sum of its digits.
+// ```js
+// console.log(sumDigits(42));
+// => 6;
+// ```
+
+function sumDigits(num) {
+  var sum = 0;
+
+  if (Number.isInteger(num) === false) {
+    return sum;
+  }
+
+  var str = num.toString();
+  for (i = 0; i <= str.length - 1; i++) {
+    sum += +str[i];
+  }
+
+  return sum;
+}
+
+console.log(sumDigits(414));
