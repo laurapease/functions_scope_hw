@@ -53,8 +53,25 @@ function sumDigits(num) {
   for (i = 0; i <= str.length - 1; i++) {
     sum += +str[i];
   }
-
   return sum;
 }
 
 console.log(sumDigits(414));
+
+// ## 4. Pythagoras
+//Write a function `calculateSide` that takes two arguments: `sideA` and`sideB`, and returns the solution for sideC using the Pythagorean theorem.
+
+//_hint: _ discover the Pythagorean Theorem on a website called google.com
+
+// _hint: _ checkout the[Math methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math) in javascript
+
+// ** _restriction_ **: for this problem, do NOT use`Math.hypot()`(but for the rest of time, once you've done this problem feel free)
+//   ```js
+//console.log(calculateSide(8, 6));
+//=> 10
+//```
+
+function calculateSide(sideA, sideB) {
+  return Math.sqrt(Math.pow(sideA, 2) + Math.pow(sideB, 2));
+}
+console.log(calculateSide(44, 9));
