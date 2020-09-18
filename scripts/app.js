@@ -56,7 +56,7 @@ function sumDigits(num) {
   return sum;
 }
 
-console.log(sumDigits(414));
+console.log(sumDigits(212));
 
 // ## 4. Pythagoras
 //Write a function `calculateSide` that takes two arguments: `sideA` and`sideB`, and returns the solution for sideC using the Pythagorean theorem.
@@ -75,3 +75,80 @@ function calculateSide(sideA, sideB) {
   return Math.sqrt(Math.pow(sideA, 2) + Math.pow(sideB, 2));
 }
 console.log(calculateSide(44, 9));
+console.log(calculateSide(8, 6));
+
+// ## 5. Sum Array
+
+// Write a function `sumArray` that takes an ** array ** as an argument.
+// The array should contain numbers.The function should return the sum of the numbers in the array. ** Do not use`.reduce()` **.
+
+// Expected result:
+
+// ```javascript
+// console.log(sumArray([1, 2, 3, 4, 5, 6]));
+// => 21
+// ```
+
+function sumArray(x) {
+  if (toString.call(x) !== "[object Array]") return false;
+
+  var total = 0;
+  for (var i = 0; i < x.length; i++) {
+    if (isNaN(x[i])) {
+      continue;
+    }
+    total += Number(x[i]);
+  }
+  return total;
+}
+console.log(sumArray([1, 2, 3, 4, 5, 6, 7]));
+
+// ## 6. Prime Numbers
+
+// A Prime number is a number that is not evenly divisible by another number except 1 and itself.If you want to read more deeply about it, [go here](https://en.wikipedia.org/wiki/Prime_number).
+//   To test whether a number is Prime, you only need to test as far as the ** square root ** of that number.This is advisable for optimization and testing large numbers.
+
+// ### Step One
+
+// Write a function called `checkPrime` that will test whether a number is Prime.The function will return true(Boolean) if Prime, false if not.
+//   _Hint: _ Check every number up to the square root.To do this, try a _for loop_.
+
+function checkPrime(n) {
+  if (n == 1) {
+    return true;
+  } else if (n == 2) {
+    return false;
+  } else
+    for (let i = 2; i < n; i++) {
+      if (n % i === 0) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+}
+console.log(checkPrime(14));
+
+// ### Step Two
+
+// Write another function called `printPrimes` that will print(console log) all the Primes up to an arbitrary limit.For example, if you invoke your function with `printPrimes(97)`, it will print all the Prime numbers up to and including 97.
+// This function can ** call on ** the previous`checkPrime` function
+// ///
+
+function printPrimes(x) {
+  var sieve = [],
+    i,
+    j,
+    primes = [];
+  for (let i = 2; i <= x; ++i) {
+    if (!sieve[i]) {
+      primes.push(i);
+      for (let j = i << 1; j <= x; j += i) {
+        sieve[j] = true;
+      }
+    }
+  }
+  return primes;
+}
+
+console.log(printPrimes(97));
